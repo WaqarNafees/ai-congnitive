@@ -3,8 +3,8 @@ from modules.api_client import get_client, MODEL
 def generate_summary(text):
     client = get_client()
     prompt = f"Read this research paper and write a clear summary in 5-7 sentences covering the main topic, methodology, and findings:\n\n{text[:6000]}"
-    msg = client.messages.create(model=MODEL, max_tokens=800, messages=[{"role":"user","content":prompt}])
-    return msg.content[0].text
+  msg = client.chat.completions.create(model=MODEL, max_tokens=800, messages=[{"role":"user","content":prompt}])
+   return msg.choices[0].message.content
 
 def extract_insights(text):
     client = get_client()
