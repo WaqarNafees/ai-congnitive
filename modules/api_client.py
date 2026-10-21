@@ -1,7 +1,7 @@
 import streamlit as st
-import anthropic
+from groq import Groq
 
 def get_client():
-    return anthropic.Anthropic(api_key=st.secrets["ANTHROPIC_API_KEY"])
+    return Groq(api_key=st.secrets["GROQ_API_KEY"])
 
-MODEL = "claude-3-haiku-20240307"
+MODEL = "llama-3.3-70b-versatile"
